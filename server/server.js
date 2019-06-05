@@ -26,6 +26,6 @@ massvie( CONNECTION_STRING ).then(db => {
 app.get('/auth/inventory', dc.getInventory)
 
 app.get('/auth/tasks', dc.getTasks)
-app.put('/auth/tasks/:id', dc.updateTask)
-app.post('/auth/task', dc.createTask)
-app.delete('/auth/tasks/:id', dc.deleteTask)
+// app.put('/auth/tasks/:id', dc.updateTask)
+// app.post('/auth/task', dc.createTask)
+// app.delete('/auth/tasks/:id', dc.deleteTask)
