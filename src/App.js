@@ -1,21 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
-import { HashRouter, Route, Switch } from 'react-router-dom';
-import Home from './Components/Home/Home';
-import Inventory from './Components/Inventory/Inventory';
+import { HashRouter } from 'react-router-dom';
+import routes from './routes';
+import Nav from './Components/Nav/Nav';
 
 
-class App extends Component {
-  render(){
+
+function App() {
     return (
       <HashRouter>
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route pat="/inventory" component={Inventory} />
-        </Switch>
+        <Nav />
+
+       {routes}
       </HashRouter>
     );
-  }
 }
 
 export default App;
