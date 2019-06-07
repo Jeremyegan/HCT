@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 
 const Navbar = styled.div`
-width: 100%;
-height: 50px;
+width: 100vw;
+height: 6em;
 background: black;
 display: flex;
 flex-direction: row;
@@ -15,7 +15,9 @@ align-content: center;
 
 const Links = styled(Link)`
 color: white;
-font-size: 20px;
+font-size: 25px;
+font-weight: 800;
+font-family: sans-serif;
 margin: 20px;
 text-decoration: none;
 `
