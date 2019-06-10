@@ -28,6 +28,7 @@ export default function Nav() {
     return (
         <Navbar>
             <Links to="/">Home</Links>
+            <Links to='/user'>User</Links>
             <Links to="/inventory">Inventory</Links>
             <Links to="/Login">Login</Links>
         </Navbar>

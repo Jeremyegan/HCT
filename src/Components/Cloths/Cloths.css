@@ -4,9 +4,12 @@ body {
 }
 canvas {
     background: #000;
+    background-size: cover;
     position: absolute;
+    top: -8em;
+    z-index: 0;
     width: 100%;
-    height: 100%;
+    height: 116vh;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

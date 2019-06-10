@@ -1,6 +1,66 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
+const LoginForm = styled.div`
+font-family: "Gill Sans", sans-serif;
+font-weight: 600;
+position: fixed;
+top: 15em;
+z-index: 5;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: .5em;
+color: rgba(220, 237, 255);
+`
+
+const FormContainer = styled.div`
+z-index: 10;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 3em;
+width: 17em;
+height: 27em;
+background-color: rgba(6, 24, 38, 0.9);
+box-shadow: inset 0px 0px 15px 1px rgb(220, 237, 255);
+border-radius: 5px;
+`
+const Form1 = styled.div`
+display: flex;
+flex-direction: column;
+padding: 2em;
+border-bottom: 2px dashed;
+`
+const Form2 = styled.div`
+display: flex;
+flex-direction: column;
+justify-ctonent: center;
+align-items: center;
+padding: 2em;
+`
+
+const Input = styled.input`
+border-radius: 8px;
+height: 30px;
+width: 20em;
+background-color: rgb(220, 237, 255);
+color: black;
+
+
+`
+
+const Button = styled.button`
+border-radius: 4px;
+background-color: rgba(177, 205, 220);
+height: 25px;
+font-size: 15px;
+font-weight: 400;
+`
 
 export default class Login extends Component {
     constructor(props) {
@@ -36,31 +96,34 @@ export default class Login extends Component {
         this.setState({ hidden: !this.state.hidden });
     }
 
+   
+
     render(){
     return(
         <div>
-            <div className='login-form'>
-                <h1>HCT Costumes</h1><br />
-                <div className="form-container">
-                <div className='form'>
-                    <h2>Login</h2>
+            <LoginForm>
+                <FormContainer>
+                <h1>Login</h1>
+                <Form1>
                     <label>Email Address</label><br />
-                    <input type="text" className="form-input" placeholder="Email" onChange={(e) => this.setState({ email: e.target.value })} value={this.state.email}/>
-                </div>
-                <div className='form'>
+                    <Input type="text" className="form-input" placeholder="Email" onChange={(e) => this.setState({ email: e.target.value })} value={this.state.email}/>
+                </Form1>
+                <Form1>
                     <label>Password</label><br />
-                    <input type={this.state.hidden ? "password" : "text"} className="form-input" 
+                    <Input type={this.state.hidden ? "password" : "text"} className="form-input" 
                     placeholder="Password" 
                     onChange={(e) => this.setState({ password: e.target.value })} 
                     value={this.state.password} /><br />
-                    <button className="toggle-btn" onClick={this.toggleShow}>Show / Hide</button>
-                </div>
+                    <Button className="toggle-btn" onClick={this.toggleShow}>Show / Hide</Button>
+                </Form1>
+                <Form2>
                 <div className='btn-container'>
-                <button className='btn-login' type="submit" onClick={() => this.login()}>Log in</button>
-                </div>
-                <p>Must be an admin to create account</p>
-                </div>
-            </div>
+                <Button className='btn-login' type="submit" onClick={() => this.login()}>Log in</Button>
+                </div><br />
+                Must be an admin to create account
+                </Form2>
+                </FormContainer>
+            </LoginForm>
         </div>
         )
     }

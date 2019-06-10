@@ -39,7 +39,8 @@ module.exports = {
         db.get_tasks({}).then(tasks => {
             res.status(200).send(tasks)
         }).catch(err => {
-            res.status(505).send(err)
+            // res.status(505).send(err)
+            if(err) throw err
         })
     }
 
