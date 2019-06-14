@@ -1,11 +1,12 @@
 import React from 'react';
-import Tasks from './../Tasks/Tasks';
+import TaskDisplay from '../TaskDisplay/TaskDisplay';
 
 
 export default function Home() {
+
     return (
         <div>
-            <Tasks />
+            <TaskDisplay />
         </div>
     )
 }

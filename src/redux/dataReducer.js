@@ -1,5 +1,4 @@
 
-
 const initialState = {
     items: {},
     tasks: [],
@@ -21,10 +20,10 @@ export function readTasks(taskObj) {
     }
 }
 
-export function editTasks(id) {
+export function editTasks(taskObj) {
     return {
         type: UPDATE_TASKS,
-        payload: id
+        payload: taskObj
     }
 }
 
@@ -38,6 +37,11 @@ function dataReducer(state = initialState, action){
                 items: action.payload
             }
         case GET_TASKS:
+            return {
+                ...state,
+                tasks: action.payload
+            }
+        case UPDATE_TASKS:
             return {
                 ...state,
                 tasks: action.payload

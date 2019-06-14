@@ -28,12 +28,16 @@ app.get('/auth/inventory', dc.getInventory)
 app.post('/auth/inventory', dc.createInventory)
 
 app.get('/auth/tasks', dc.getTasks)
-// app.put('/auth/tasks/:id', dc.updateTask)
-// app.post('/auth/task', dc.createTask)
+app.put('/auth/task/:id', dc.updateTask)
+app.put('/auth/item/:id', dc.updateItem)
+app.put('/auth/show/:id', dc.updateShow)
+app.put('/auth/employee/:id', dc.updateEmployee)
+
+// app.post('/auth/tasks', dc.createTask)
 // app.delete('/auth/tasks/:id', dc.deleteTask)
 
 
 app.post('/auth/login', ac.login)
 app.post('/auth/register', ac.register)
-app.delete('/auth/logout', ac.logout)
+app.get('/auth/logout', ac.logout)
 app.get('/user/user-data', ac.userData)

@@ -2,14 +2,12 @@ INSERT INTO employee (
     first_name,
     last_name,
     email,
-    hash,
-    admin
+    hash
 ) VALUES (
     $1,
     $2,
     $3,
-    $4,
-    'false'
+    $4
 )
 
 RETURNING first_name, last_name, email, employee_id;

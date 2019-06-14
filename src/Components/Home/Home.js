@@ -1,15 +1,27 @@
 import React from 'react';
-import Tasks from './../Tasks/Tasks';
+import TaskDisplay from './../TaskDisplay/TaskDisplay';
 import Cloths from './../Cloths/Cloths';
-import Login from './../Login/Login';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
+
+const Title = styled.h1`
+    font-family: "Gill Sans", sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+    z-index: 10;
+    color: white;
+    position: absolute;
+    top: 50px;
+    left: 80px;
+`
 
 export default function Home() {
     return (
         <div>
-            <Login></Login>
+            <Link to='/login'><Title>Login</Title></Link>
             <Cloths></Cloths>
-            <Tasks />
+            <TaskDisplay />
         </div>
     )
 }
