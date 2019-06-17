@@ -93,5 +93,16 @@ module.exports = {
         }).catch(err => {
             if(err) throw err
         })
+    },
+
+    deleteTask: (req, res ) => {
+        const db = req.app.get('db')
+        const { id } = req.params;
+        
+        db.delete_task({ id }).then(item => {
+            res.status(200).send(item)
+        }).catch(err => {
+            if(err) throw err
+        })
     }
 }

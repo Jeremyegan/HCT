@@ -32,9 +32,9 @@ app.put('/auth/task/:id', dc.updateTask)
 app.put('/auth/item/:id', dc.updateItem)
 app.put('/auth/show/:id', dc.updateShow)
 app.put('/auth/employee/:id', dc.updateEmployee)
+app.delete('/auth/task/:id', dc.deleteTask)
 
 // app.post('/auth/tasks', dc.createTask)
-// app.delete('/auth/tasks/:id', dc.deleteTask)
 
 
 app.post('/auth/login', ac.login)

@@ -11,7 +11,8 @@ const initialState = {
 
 const GET_INVENTORY = "GET_INVENTORY";
 const GET_TASKS = "GET_TASKS";
-const UPDATE_TASKS = "UPDATE_TASKS";
+const UPDATE_TASK = "UPDATE_TASK";
+const DELETE_TASK = "DELETE_TASK";
 
 export function readTasks(taskObj) {
     return {
@@ -20,9 +21,16 @@ export function readTasks(taskObj) {
     }
 }
 
-export function editTasks(taskObj) {
+export function editTask(taskObj) {
     return {
-        type: UPDATE_TASKS,
+        type: UPDATE_TASK,
+        payload: taskObj
+    }
+}
+
+export function deleteTask(taskObj) {
+    return {
+        type: DELETE_TASK,
         payload: taskObj
     }
 }
@@ -41,7 +49,12 @@ function dataReducer(state = initialState, action){
                 ...state,
                 tasks: action.payload
             }
-        case UPDATE_TASKS:
+        case UPDATE_TASK:
+            return {
+                ...state,
+                tasks: action.payload
+            }
+        case DELETE_TASK:
             return {
                 ...state,
                 tasks: action.payload

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux';
-import { editTasks } from '../../redux/dataReducer';
+import { editTask, readTasks, deleteTask } from '../../redux/dataReducer';
 import axios from 'axios'
 
 const TaskCard = styled.div`
@@ -72,6 +72,14 @@ class Task extends Component {
 
         })
     }
+
+    handleDelete = async () => {
+        const id = this.props.id;
+        axios.delete(`/auth/task/${id}`).then(res => this.props.deleteTask(res.data));
+        await axios.get('auth/tasks').then(res => { 
+            this.props.readTasks(res.data)})
+
+    }
     
     
     handleChange = (e) => {
@@ -80,18 +88,21 @@ class Task extends Component {
         })
     }
 
-    onSubmit = (e) => {
-        e.preventDefault()
+    onSubmit = async () => {
+        
         const { id, task, item, color, show, completed } = this.state;
-        axios.put(`/auth/item/${id}`, {item, color}).then(res => this.props.editTasks(res.data));
-        axios.put(`/auth/task/${id}`, {task, completed}).then(res => this.props.editTasks(res.data));
-        axios.put(`/auth/show/${id}`, {show}).then(res => this.props.editTasks(res.data));
+        axios.put(`/auth/item/${id}`, {item, color}).then(res => this.props.editTask(res.data));
+        axios.put(`/auth/task/${id}`, {task, completed}).then(res => this.props.editTask(res.data));
+        axios.put(`/auth/show/${id}`, {show}).then(res => this.props.editTask(res.data));
+         await axios.get('auth/tasks').then(res => { 
+            this.props.readTask(res.data)})
         
         this.setState({
             edit: false
         })
-        
     }
+
+
 
 
     render() {
@@ -111,7 +122,7 @@ class Task extends Component {
                 </div>
                 <BtnCont>
                     <Button onClick={() => this.toggleEdit()}>Edit</Button>
-                    <Button>Delete</Button>
+                    <Button onClick={() => this.handleDelete()}>Delete</Button>
                 </BtnCont>
             </div>
 
@@ -139,5 +150,5 @@ function mapStateToProps(reduxState) {
 
 export default connect(
     mapStateToProps,
-    { editTasks }
+    { editTask, readTasks, deleteTask }
 )(Task)
