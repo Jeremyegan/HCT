@@ -8,6 +8,7 @@ const dc = require('./controllers/dataCtrl');
 const ac = require('./controllers/authCtrl');
 
 app.use(express.json())
+app.use( express.static( `${__dirname}/../build` ) );
 app.use(session({
     secret: SESSION_SECRET,
     saveUninitialized: false,
