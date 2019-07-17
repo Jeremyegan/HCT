@@ -1,0 +1,29 @@
+.loginIcon {
+    background: transparent;
+    height: 30px;
+    padding: 15px;
+    border-bottom: 1px solid white;
+    margin-bottom: 15px;
+}
+
+.welcome {
+    font-weight: 100;
+    color: white;
+    margin-bottom: 2em;
+}
+
+.hidden {
+    background: transparent;
+    color: white;
+    height: 30px;
+    
+    
+}
+
+.viewButton {
+    border: 0;
+    background: transparent;
+    height: 45px;
+    border-bottom: 1px solid white;
+
+}

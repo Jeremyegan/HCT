@@ -29,8 +29,10 @@ display: flex;
 flex-direction: row;
 justify-content: left;
 width: 49vw;
-border: 3px dashed pink;
-margin: 2.5px;
+background: #ECE3E6;
+padding: 20px;
+margin: 2px;
+overflow: hidden;
 `
 
 // const DoughnutGraph = (props) => {

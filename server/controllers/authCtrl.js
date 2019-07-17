@@ -32,16 +32,15 @@ module.exports = {
         if (employeeArr.length === 0) {
             return res.status(200).send({ error: 'There is no account associated with that email.' })
         }
-        // console.log('password', password)
-        console.log('hash', employeeArr[0].hash)
+        
         const result = bcrypt.compareSync(password, employeeArr[0].hash);
         if (!result) {
             return res.status(401).send({ error: 'Incorrect password.'})
         }
-        req.session.employee = { first_name: employeeArr[0].first_name, last_name: employeeArr[0].last_name, email: employeeArr[0].email, id: employeeArr[0].id };
+        req.session.employee = { first_name: employeeArr[0].first_name, last_name: employeeArr[0].last_name, email: employeeArr[0].email, id: employeeArr[0].employee_id, admin: employeeArr[0].admin };
         res.status(200).send({
             message: 'Log in successful',
-            userData: req.session.employee,
+            userData: req.session.employee,  //first_name, last_name, email, id, admin
             loggedIn: true
         })
     },
@@ -51,6 +50,7 @@ module.exports = {
     },
 
     userData(req, res) {
+        console.log(req.session.employee, "employee obj")
         if (req.session.employee) res.status(200).send(req.session.employee)
         else res.status(401).send('Please log in');
     }

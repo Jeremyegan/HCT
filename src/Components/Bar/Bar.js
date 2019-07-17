@@ -15,21 +15,27 @@ const data = {
 		backgroundColor: [
 		'#FF6384',
 		'#36A2EB',
-		'#FFCE56'
+		'#FFCE56',
+		'#56CB43',
+		'#34B3TD'
 		],
 		hoverBackgroundColor: [
 		'#FF6384',
 		'#36A2EB',
 		'#FFCE56'
+		],
+		pointBackgroundColor: [
+		'#34B3TD'
 		]
 	}]
-};
+}
 
 const Linez = styled.div`
 box-sizing: border-box;
-border: 3px dashed pink;
+background: #ECE3E6;
+padding: 20px;
 width: 49vw;
-margin: 2.5px;
+margin: 2px;
 `
 
 // const DoughnutGraph = (props) => {

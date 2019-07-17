@@ -7,49 +7,55 @@ import Task from '../Task/Task';
 
 const TaskContainer = styled.div`
 box-sizing: border-box;
-padding: 2em;
+padding: 0px;
 display: flex;
-flex-direction: row;
+flex-direction: column;
 align-items: center;
 justify-content: center;
 z-index: 10;
-
+height: 100%;
+width: 100%;
 `
-
 
 const Title = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: center;
+align-items: center;
 font-family: serif, constantia;
 font-size: 35px;
-font-weight: 900;
+font-weight: 600;
 letter-spacing: 2px;
+background-color: black;
+color: white;
+width: 100%;
+height: 60px;
+`
+
+const Wrapper = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+
+@keyframes (1024 X 1366 ) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 `
 
-
-
 class TaskDisplay extends Component {
-    constructor() {
-        super()
-            this.state = {
-                task: [],
-                task_id: '',
-                item_id: '',
-                show_id: ''
-
-            }
-    }
 
     componentDidMount(){
-        axios.get('auth/tasks').then(res => { 
+        axios.get('/auth/tasks').then(res => { 
+            console.log(res.data, "this is getting tasks")
             this.props.readTasks(res.data)})
         
     }
 
-    render(){  
-        console.log(this.props)   
+    render(){   
         const tasks = this.props.data.tasks.map((element, i) => {
             return (
                 <div>
@@ -66,13 +72,13 @@ class TaskDisplay extends Component {
             )
         }) 
         return (
-            <div>
-                <Title>Tasks</Title>
             <TaskContainer>
-                {tasks}
+                <Title>Tasks</Title>
+                    <Wrapper>
+                        {tasks}
+                    </Wrapper>
                 
             </TaskContainer>
-            </div>
         ) 
         
     }

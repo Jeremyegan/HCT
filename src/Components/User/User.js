@@ -3,33 +3,36 @@ import TaskDisplay from '../TaskDisplay/TaskDisplay';
 import Chart from '../Chart/Chart';
 import LineData from '../Bar/Bar';
 import styled from 'styled-components';
+import Nav from '../Nav/Nav';
 
+
+const UserContainer = styled.div`
+
+`
 
 const ChartContainer = styled.div`
 box-sizing: border-box;
-height: 53vh;
-width: 100%;
-border: 2px dashed green;
 display: flex;
 flex-direction: row;
-justify-content: space-between;
-margin: 0;
-
-
+justify-content: space-around;
+margin: 50px 0px;
 `
+
+
 
 
 export default function User() {
 
     return (
-        <div>
+        <>
+        <Nav />
+        <UserContainer>
             <ChartContainer>
-                <Chart /><LineData />
+                    <Chart /><LineData /><br />
             </ChartContainer>
-            <div>
                 <TaskDisplay />
-            </div>
-        </div>
+        </UserContainer>
+        </>
     );
     
 }

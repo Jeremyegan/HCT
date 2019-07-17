@@ -2,18 +2,20 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux';
 import { editTask, readTasks, deleteTask } from '../../redux/dataReducer';
-import axios from 'axios'
+import axios from 'axios';
 
 const TaskCard = styled.div`
-border: 2px solid green ;
+border: none;
+border-radius: 5px;
 margin: 10px;
 display: flex;
 width: 12em;
 height: 15em;
-flex-direction: column;
+flex-direction: row;
 align-items: left;
 justify-content: space-between;
 padding: 1em;
+background: #ECE3E6 ;
 `
 
 
@@ -42,6 +44,10 @@ padding: 10px;
 
 const Form = styled.form`
 
+`
+
+const Spacing = styled.div` 
+padding: 15px;
 `
 
 
@@ -89,13 +95,13 @@ class Task extends Component {
     }
 
     onSubmit = async () => {
-        
+        console.log(this.props, "props in task")
         const { id, task, item, color, show, completed } = this.state;
         axios.put(`/auth/item/${id}`, {item, color}).then(res => this.props.editTask(res.data));
         axios.put(`/auth/task/${id}`, {task, completed}).then(res => this.props.editTask(res.data));
         axios.put(`/auth/show/${id}`, {show}).then(res => this.props.editTask(res.data));
-         await axios.get('auth/tasks').then(res => { 
-            this.props.readTask(res.data)})
+        await axios.get('/auth/tasks').then(res => { 
+            this.props.readTasks(res.data)})
         
         this.setState({
             edit: false
@@ -115,10 +121,12 @@ class Task extends Component {
             <div>
                 <div><h5>{this.props.id}</h5>
                     <Name>Name: {this.props.first} {this.props.last}</Name> <br />
-                    Task: {this.props.task} <br />
-                    Item: {this.props.item} <br />
-                    Color: {this.props.color} <br />
-                    Show: {this.props.show} <br />
+                    <Spacing>
+                        Task: {this.props.task} <br />
+                        Item: {this.props.item} <br />
+                        Color: {this.props.color} <br />
+                        Show: {this.props.show} <br />
+                    </Spacing>
                 </div>
                 <BtnCont>
                     <Button onClick={() => this.toggleEdit()}>Edit</Button>
@@ -130,10 +138,12 @@ class Task extends Component {
 
             <Form onSubmit={this.onSubmit}>
                 <Name>Name: {this.props.first} {this.props.last}</Name> <br />
-                Task: <input name='task' value={this.state.task} onChange={this.handleChange} type='text' /> <br />
-                Item: <input name='item' value={this.state.item} onChange={this.handleChange} type='text' /> <br />
-                Color: <input name='color' value={this.state.color} onChange={this.handleChange} type='text' /> <br />
-                Show: <input name='show' value={this.state.show} onChange={this.handleChange} type='text' /> <br />
+                <Spacing>
+                    Task: <input name='task' value={this.state.task} onChange={this.handleChange} type='text' /> <br />
+                    Item: <input name='item' value={this.state.item} onChange={this.handleChange} type='text' /> <br />
+                    Color: <input name='color' value={this.state.color} onChange={this.handleChange} type='text' /> <br />
+                    Show: <input name='show' value={this.state.show} onChange={this.handleChange} type='text' /> <br />
+                </Spacing>
                 <BtnCont>
                     <Button onClick={() => this.onSubmit}>Update</Button>
                 </BtnCont>
