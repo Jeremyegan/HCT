@@ -9,13 +9,14 @@ border: none;
 border-radius: 5px;
 margin: 10px;
 display: flex;
-width: 12em;
-height: 15em;
+width: auto;
+height: auto;
 flex-direction: row;
 align-items: left;
 justify-content: space-between;
 padding: 1em;
-background: #ECE3E6 ;
+background: RGBA(0, 0, 0, 0.3);
+color: white;
 `
 
 
@@ -23,13 +24,6 @@ const Name = styled.div`
 border-bottom: 1px solid black;
 padding-bottom: 1em;
 height: 20px;
-`
-
-const Button = styled.button`
-border: 2px solid black;
-border-radius: 5px;
-height: 25px;
-
 `
 
 const BtnCont = styled.div`
@@ -49,7 +43,21 @@ const Form = styled.form`
 const Spacing = styled.div` 
 padding: 15px;
 `
+const Button = styled.button`
+  border-radius: 4px;
+  border: 0;
+  background-color: #212121;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 100;
+  font-family: "Gill Sans", sans-serif;
+  padding: 5px 20px;
+  margin: 30px 10px;
 
+  :hover {
+    color: #4a4a4a;
+  }
+`;
 
 
 class Task extends Component {
@@ -115,10 +123,10 @@ class Task extends Component {
         console.log(this.props.id)
         console.log(this.state)
         return (
-            <TaskCard>
+            <div>
                     
             { !this.state.edit ? 
-            <div>
+            <TaskCard>
                 <div><h5>{this.props.id}</h5>
                     <Name>Name: {this.props.first} {this.props.last}</Name> <br />
                     <Spacing>
@@ -132,7 +140,7 @@ class Task extends Component {
                     <Button onClick={() => this.toggleEdit()}>Edit</Button>
                     <Button onClick={() => this.handleDelete()}>Delete</Button>
                 </BtnCont>
-            </div>
+            </TaskCard>
 
             :
 
@@ -149,7 +157,7 @@ class Task extends Component {
                 </BtnCont>
             </Form>
         }
-            </TaskCard>
+            </div>
         )
     }
 }

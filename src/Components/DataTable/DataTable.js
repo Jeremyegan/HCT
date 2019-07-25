@@ -1,6 +1,7 @@
 import React from 'react';
 import MaterialTable from 'material-table';
 import axios from 'axios';
+import './DataTable.css';
 
 export default class DataTable extends React.Component {
   constructor(){
@@ -34,22 +35,13 @@ export default class DataTable extends React.Component {
     })
   }
 
-  // create() {
-  //   console.log(this.state)
-  //   const { gender, color, size, style } = this.state
-  //   const res = axios.post('/auth/inventory', { gender, color, size, style });
-  //   console.log(res, "create method hit")
-  //   this.setState({
-  //     data: res
-  //   })
-  // }
-
   
 
 
   render(){
     return (
       <MaterialTable
+        className="inventoryTable"
         title="Inventory"
         options={{exportButton: true}}
         columns={this.state.columns}

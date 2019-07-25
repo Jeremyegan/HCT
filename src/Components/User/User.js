@@ -5,17 +5,12 @@ import LineData from '../Bar/Bar';
 import styled from 'styled-components';
 import Nav from '../Nav/Nav';
 
-
-const UserContainer = styled.div`
-
-`
-
 const ChartContainer = styled.div`
-box-sizing: border-box;
 display: flex;
 flex-direction: row;
 justify-content: space-around;
 margin: 50px 0px;
+
 `
 
 
@@ -26,12 +21,12 @@ export default function User() {
     return (
         <>
         <Nav />
-        <UserContainer>
+        <div>
             <ChartContainer>
                     <Chart /><LineData /><br />
             </ChartContainer>
                 <TaskDisplay />
-        </UserContainer>
+        </div>
         </>
     );
     

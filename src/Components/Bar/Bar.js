@@ -13,7 +13,7 @@ const data = {
 	datasets: [{
 		data: [300, 110, 200, 50, 450],
 		backgroundColor: [
-		'#FF6384',
+		'#84FF00',
 		'#36A2EB',
 		'#FFCE56',
 		'#56CB43',
@@ -32,7 +32,7 @@ const data = {
 
 const Linez = styled.div`
 box-sizing: border-box;
-background: #ECE3E6;
+background: RGBA(0, 0, 0, 0.3);
 padding: 20px;
 width: 49vw;
 margin: 2px;

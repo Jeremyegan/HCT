@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 const Navbar = styled.div`
 width: 100vw;
 height: 10%;
-background: rgb(57, 60, 63);
+background: RGBA(0, 0, 0, 0.6);
 display: flex;
 flex-direction: row;
 justify-content: space-around;
@@ -19,13 +19,13 @@ align-items: center;
 const Links = styled(Link)`
 color: #ECE3E6;
 font-size: 25px;
-font-weight: 800;
+font-weight: 100;
 font-family: sans-serif;
 margin: 20px;
 text-decoration: none;
 `
 const Button = styled.button`
-background-color: rgb(57, 60, 63);
+background-color: RGBA(0, 0, 0, 0.6);
 color: white;
 border: none;
 height: 100%;
@@ -33,11 +33,11 @@ display: flex;
 flex-direction: row;
 justify-content: top;
 font-size: 25px;
-font-weight: 800;
+font-weight: 100;
 font-family: sans-serif;
 margin: -13px;
 text-decoration: none;
-border-color: rgb(57, 60, 63);
+border-color: RGBA(0, 0, 0, 0.6);
 `
 
 

@@ -7,7 +7,6 @@ import Nav from '../Nav/Nav';
 const TableContainer = styled.div`
 width: 100vw;
 height: 93vh;
-background: #B49082;
 display: flex;
 flex-direction: row;
 justify-content: center;

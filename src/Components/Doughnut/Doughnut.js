@@ -11,15 +11,20 @@ const data = {
 	datasets: [{
 		data: [300, 50, 100],
 		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
+		'#84FF00',
+		'#FFC900',
+		'#0083FF'
 		],
 		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		]
+		'#0083FF',
+		'#84FF00',
+		'#FFC900'
+		],
+		borderColor: [ 
+		'#000',
+		'#000',
+		'#000'
+		 ]
 	}]
 };
 
@@ -29,7 +34,7 @@ display: flex;
 flex-direction: row;
 justify-content: left;
 width: 49vw;
-background: #ECE3E6;
+background: RGBA(0, 0, 0, 0.3);
 padding: 20px;
 margin: 2px;
 overflow: hidden;
